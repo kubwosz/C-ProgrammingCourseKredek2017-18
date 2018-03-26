@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataJakubWoszczynaZad7">
+  <DataContextMoniker Name="/DataJakubWoszczynaZad7DataContext" />
+  <nestedChildShapes>
+    <classShape Id="1c2b8197-7374-4b95-b1fd-6e258e75223f" absoluteBounds="4.125, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataJakubWoszczynaZad7DataContext/JakubWoszczyna_Position" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae8dd4e9-cf54-48d9-8fbd-29ebd069a5c0" absoluteBounds="4.1400000000000006, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="40fbdc31-307b-44ef-a097-ba7fca984e8f" absoluteBounds="1.375, 2.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataJakubWoszczynaZad7DataContext/JakubWoszczyna_Score" />
+      <nestedChildShapes>
+        <elementListCompartment Id="094b2502-7271-4c6e-9f8a-adc42c753959" absoluteBounds="1.3900000000000001, 3.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

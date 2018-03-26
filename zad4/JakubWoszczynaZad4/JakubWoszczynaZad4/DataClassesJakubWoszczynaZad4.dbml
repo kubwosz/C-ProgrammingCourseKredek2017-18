@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JakubWoszczynaZad4" Class="DataClassesJakubWoszczynaZad4DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JAKUBW\SQLEXPRESS;Initial Catalog=JakubWoszczynaZad4;Integrated Security=True" SettingsObjectName="JakubWoszczynaZad4.Properties.Settings" SettingsPropertyName="JakubWoszczynaZad4ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ClientAddresses" Member="ClientAddresses">
+    <Type Name="ClientAddress">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BuildingNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ClientAddress_Client" Member="Clients" ThisKey="ID" OtherKey="AddressID" Type="Client" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contacts" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mail" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Association Name="Contact_Client" Member="Clients" ThisKey="ID" OtherKey="ContactID" Type="Client" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PlacesToGetProduct" Member="PlacesToGetProducts">
+    <Type Name="PlacesToGetProduct">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BuildingNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PlacesToGetProduct_Order" Member="Orders" ThisKey="ID" OtherKey="PlaceToGetProductID" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Clients" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddressID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Client_Order" Member="Orders" ThisKey="ID" OtherKey="ClientID" Type="Order" />
+      <Association Name="ClientAddress_Client" Member="ClientAddress" ThisKey="AddressID" OtherKey="ID" Type="ClientAddress" IsForeignKey="true" />
+      <Association Name="Contact_Client" Member="Contact" ThisKey="ContactID" OtherKey="ID" Type="Contact" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlaceToGetProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateToGetProduct" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Client_Order" Member="Client" ThisKey="ClientID" OtherKey="ID" Type="Client" IsForeignKey="true" />
+      <Association Name="PlacesToGetProduct_Order" Member="PlacesToGetProduct" ThisKey="PlaceToGetProductID" OtherKey="ID" Type="PlacesToGetProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
